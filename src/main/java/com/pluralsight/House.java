@@ -52,5 +52,30 @@ public class House extends Asset {
     public void setLotSize(int lotSize) {
         this.lotSize = lotSize;
     }
+
+    @Override
+    public BigDecimal getValue() {
+
+    BigDecimal pricePerSquareFoot;
+
+    if (condition == 1) {
+        pricePerSquareFoot = new BigDecimal("180");
+    } else if (condition == 2) {
+        pricePerSquareFoot = new BigDecimal("130");
+    } else if (condition == 3) {
+        pricePerSquareFoot = new BigDecimal("90");
+    } else {
+        pricePerSquareFoot = new BigDecimal("80");
+    }
+
+    BigDecimal houseValue = pricePerSquareFoot.multiply(new BigDecimal(squareFoot));
+
+    BigDecimal landValue = new BigDecimal("0.25").multiply(new BigDecimal(lotSize));
+
+    return houseValue.add(landValue);
 }
+
 }
+
+
+
