@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Vehicle extends Asset {
 
@@ -40,6 +41,31 @@ public class Vehicle extends Asset {
 
     public void setOdometer(int odometer) {
         this.odometer = odometer;
+    }
+
+    @Override
+    public BigDecimal getValue() {
+
+        int currentYear = LocalDate.now().getYear();
+        int age = currentYear - year;
+
+        BigDecimal depreciationRate;
+
+        if (age <= 3) {
+            depreciationRate = new BigDecimal("0.03");
+        } else if (age <= 6) {
+            depreciationRate = new BigDecimal("0.06");
+        } else if (age <= 10) {
+            depreciationRate = new BigDecimal("0.08");
+        } else {
+            return new BigDecimal("1000.00");
+        }
+
+        BigDecimal depreciation = getOriginalCost()
+                .multiply(depreciationRate)
+                .multiply(new BigDecimal(age));
+
+        return getOriginalCost().subtract(depreciation);
     }
 
 }
