@@ -61,11 +61,18 @@ public class Vehicle extends Asset {
             return new BigDecimal("1000.00");
         }
 
-        BigDecimal depreciation = getOriginalCost()
-                .multiply(depreciationRate)
-                .multiply(new BigDecimal(age));
+        BigDecimal depreciation = getOriginalCost().multiply(depreciationRate).multiply(new BigDecimal(age));
 
-        return getOriginalCost().subtract(depreciation);
+        BigDecimal vehicleValue = getOriginalCost().subtract(depreciation);
+
+
+        if (odometer > 100000 && !makeModel.contains("Honda") && !makeModel.contains("Toyota")) {
+
+            vehicleValue = vehicleValue.multiply(new BigDecimal("0.75"));
+        }
+
+        return vehicleValue.setScale(2);
     }
+
 
 }
