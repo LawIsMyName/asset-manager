@@ -49,21 +49,29 @@ public class Vehicle extends Asset {
         int currentYear = LocalDate.now().getYear();
         int age = currentYear - year;
 
-        BigDecimal depreciationRate;
+        BigDecimal vehicleValue;
 
-        if (age <= 3) {
-            depreciationRate = new BigDecimal("0.03");
-        } else if (age <= 6) {
-            depreciationRate = new BigDecimal("0.06");
-        } else if (age <= 10) {
-            depreciationRate = new BigDecimal("0.08");
+        if (age > 10) {
+            vehicleValue = new BigDecimal("1000.00");
         } else {
-            return new BigDecimal("1000.00");
+
+            BigDecimal depreciationRate;
+
+            if (age <= 3) {
+                depreciationRate = new BigDecimal("0.03");
+            } else if (age <= 6) {
+                depreciationRate = new BigDecimal("0.06");
+
+                depreciationRate = new BigDecimal("0.08");
+            } else {
+                depreciationRate = new BigDecimal("0.08");
+            }
+
+            BigDecimal depreciation = getOriginalCost().multiply(depreciationRate).multiply(new BigDecimal(age));
+
+            vehicleValue = getOriginalCost().subtract(depreciation);
+
         }
-
-        BigDecimal depreciation = getOriginalCost().multiply(depreciationRate).multiply(new BigDecimal(age));
-
-        BigDecimal vehicleValue = getOriginalCost().subtract(depreciation);
 
 
         if (odometer > 100000 && !makeModel.contains("Honda") && !makeModel.contains("Toyota")) {
@@ -73,6 +81,6 @@ public class Vehicle extends Asset {
 
         return vehicleValue.setScale(2);
     }
-
-
 }
+
+
