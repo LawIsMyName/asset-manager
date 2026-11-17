@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 public class Asset {
 
     private String description;
-    private String dateAquired;
+    private String dateAcquired;
     private BigDecimal originalCost;
 
     public Asset(String description, String dateAquired, BigDecimal originalCost) {
         this.description = description;
-        this.dateAquired = dateAquired;
+        this.dateAcquired = dateAquired;
         this.originalCost = originalCost;
     }
 
@@ -22,12 +22,12 @@ public class Asset {
         this.description = description;
     }
 
-    public String getDateAquired() {
-        return dateAquired;
+    public String getDateAcquired() {
+        return dateAcquired;
     }
 
-    public void setDateAquired(String dateAquired) {
-        this.dateAquired = dateAquired;
+    public void setDateAcquired(String dateAquired) {
+        this.dateAcquired = dateAquired;
     }
 
     public BigDecimal getOriginalCost() {
