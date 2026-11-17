@@ -8,9 +8,9 @@ public abstract class Asset {
     private String dateAcquired;
     private BigDecimal originalCost;
 
-    public Asset(String description, String dateAquired, BigDecimal originalCost) {
+    public Asset(String description, String dateAcquired, BigDecimal originalCost) {
         this.description = description;
-        this.dateAcquired = dateAquired;
+        this.dateAcquired = dateAcquired;
         this.originalCost = originalCost;
     }
 
@@ -26,8 +26,8 @@ public abstract class Asset {
         return dateAcquired;
     }
 
-    public void setDateAcquired(String dateAquired) {
-        this.dateAcquired = dateAquired;
+    public void setDateAcquired(String dateAcquired) {
+        this.dateAcquired = dateAcquired;
     }
 
     public BigDecimal getOriginalCost() {
