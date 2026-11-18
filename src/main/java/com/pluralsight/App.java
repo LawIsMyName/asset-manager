@@ -30,5 +30,7 @@ public class App {
             }
         }
 
+        Cash cash = new Cash("Cash under mattress", "2026-11-18", new BigDecimal("500.00"));
+        assets.add(cash);
     }
 }
