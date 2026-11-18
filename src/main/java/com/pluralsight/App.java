@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-
+//abstract
         ArrayList<Asset> assets = new ArrayList<>();
 
         assets.add(new House("My House", "2026-08-20", new BigDecimal("250000.00"), "123 Super Street", 2, 1800, 6000));
