@@ -2,7 +2,7 @@ package com.pluralsight;
 
 import java.math.BigDecimal;
 
-public abstract class Asset {
+public class Asset {
 
     private String description;
     private String dateAcquired;
