@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 public class House extends Asset {
 
@@ -57,24 +56,24 @@ public class House extends Asset {
     @Override
     public BigDecimal getValue() {
 
-    BigDecimal pricePerSquareFoot;
+        BigDecimal pricePerSquareFoot;
 
-    if (condition == 1) {
-        pricePerSquareFoot = new BigDecimal("180");
-    } else if (condition == 2) {
-        pricePerSquareFoot = new BigDecimal("130");
-    } else if (condition == 3) {
-        pricePerSquareFoot = new BigDecimal("90");
-    } else {
-        pricePerSquareFoot = new BigDecimal("80");
+        if (condition == 1) {
+            pricePerSquareFoot = new BigDecimal("180");
+        } else if (condition == 2) {
+            pricePerSquareFoot = new BigDecimal("130");
+        } else if (condition == 3) {
+            pricePerSquareFoot = new BigDecimal("90");
+        } else {
+            pricePerSquareFoot = new BigDecimal("80");
+        }
+
+        BigDecimal houseValue = pricePerSquareFoot.multiply(new BigDecimal(squareFoot));
+
+        BigDecimal landValue = new BigDecimal("0.25").multiply(new BigDecimal(lotSize));
+
+        return houseValue.add(landValue);
     }
-
-    BigDecimal houseValue = pricePerSquareFoot.multiply(new BigDecimal(squareFoot));
-
-    BigDecimal landValue = new BigDecimal("0.25").multiply(new BigDecimal(lotSize));
-
-    return houseValue.add(landValue);
-}
 
 }
 
