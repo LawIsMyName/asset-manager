@@ -26,8 +26,8 @@ public abstract class Asset {
         return dateAcquired;
     }
 
-    public void setDateAcquired(String dateAquired) {
-        this.dateAcquired = dateAquired;
+    public void setDateAcquired(String dateAcquired) {
+        this.dateAcquired = dateAcquired;
     }
 
     public BigDecimal getOriginalCost() {
