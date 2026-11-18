@@ -61,8 +61,6 @@ public class Vehicle extends Asset {
                 depreciationRate = new BigDecimal("0.03");
             } else if (age <= 6) {
                 depreciationRate = new BigDecimal("0.06");
-
-                depreciationRate = new BigDecimal("0.08");
             } else {
                 depreciationRate = new BigDecimal("0.08");
             }
