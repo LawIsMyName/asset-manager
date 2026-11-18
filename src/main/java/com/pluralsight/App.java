@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-//abstract
+
         ArrayList<Asset> assets = new ArrayList<>();
 
         assets.add(new House("My House", "2026-08-20", new BigDecimal("250000.00"), "123 Super Street", 2, 1800, 6000));
@@ -13,6 +13,9 @@ public class App {
 
         assets.add(new Vehicle("My Car", "2024-03-10", new BigDecimal("20000.00"), "Toyota Camry", 2024, 45000));
         assets.add(new Vehicle("Hunter's car", "2023-06-12", new BigDecimal("35000.00"), "Dodge Challenger", 2023, 120000));
+
+        Cash cash = new Cash("Cash under mattress", "2026-11-18", new BigDecimal("500.00"));
+        assets.add(cash);
 
         for (Asset asset : assets) {
 
@@ -29,8 +32,7 @@ public class App {
                 System.out.println("Make/Model: " + vehicle.getMakeModel());
             }
         }
-
-        Cash cash = new Cash("Cash under mattress", "2026-11-18", new BigDecimal("500.00"));
-        assets.add(cash);
     }
 }
+
+
